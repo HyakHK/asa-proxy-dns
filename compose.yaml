@@ -19,39 +19,25 @@ services:
     ports:
       - "80:80/tcp"
     depends_on:
-      - asa-server
+      - asa-web
+      - asa-mail
 
-  asa-server:
-    build:
-      context: ./asa-server
-      dockerfile: Dockerfile
-    container_name: asa-server
-    networks:
-      - asa-network
-
-  asa-server2:
-    build:
-      context: ./asa-server
-      dockerfile: Dockerfile
-    container_name: asa-server2
-    networks:
-      - asa-network
-
-  asa-server-web:
+  asa-web:
     build:
       context: ./web
       dockerfile: Dockerfile
-    container_name: asa-server-web
+    container_name: asa-web
     networks:
       - asa-network
 
-  asa-server-mail:
+  asa-mail:
     build:
       context: ./mail
       dockerfile: Dockerfile
-    container_name: asa-server-mail
+    container_name: asa-mail
     networks:
       - asa-network
+
 
 
 
